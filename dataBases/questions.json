@@ -1,0 +1,6 @@
+{
+	"1": {
+		"question": "${user1} doit dire la couleur de préférée de ${user2} sinon il boit",
+		"force": 1
+	}
+}
