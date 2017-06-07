@@ -13,8 +13,6 @@ import SubmitRedirect from './components/SubmitRedirect';
 //other
 import './styles/App.css';
 
-
-
 const appStore = createStore(allReducers);
 
 ReactDOM.render(

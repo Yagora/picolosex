@@ -1,5 +1,5 @@
 //node_modules
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 //components
 import Username from './../components/Username.js';
 import Question from './../containers/Question.js';

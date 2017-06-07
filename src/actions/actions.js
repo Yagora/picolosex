@@ -1,5 +1,9 @@
 import {browserHistory} from 'react-router';
 
-export function showSubmit(values){
+export function authUser(values){
     browserHistory.push('/SubmitRedirect');
+    return{
+        type: "AUTH_USER",
+        payload: values
+    }
 }
