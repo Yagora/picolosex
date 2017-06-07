@@ -1,0 +1,7 @@
+{
+	"1": {
+		"action": "${user1} embrasse ${user2} pendant 30 seconde",
+		"timer": 30,
+		"force": 1
+	}
+}
