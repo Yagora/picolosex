@@ -1,7 +1,35 @@
 {
 	"1": {
-		"action": "${user1} embrasse ${user2} pendant 30 seconde",
+		"action": "${user1} A1 F1 ${user2} sinon il boit",
 		"timer": 30,
 		"force": 1
+	},
+	"2": {
+		"action": "${user1} A2 F2 ${user2} sinon il boit",
+		"timer": 30,
+		"force": 2,
+		"naked": true
+	},
+	"3": {
+		"action": "${user1} A3 F3 ${user2} sinon il boit",
+		"timer": 30,
+		"force": 3
+	},
+	"4": {
+		"action": "${user1} A4 F4 ${user2} sinon il boit",
+		"timer": 30,
+		"force": 4,
+		"naked": true
+	},
+	"5": {
+		"action": "${user1} A5 F1 ${user2} sinon il boit",
+		"timer": 30,
+		"force": 1,
+		"naked": true
+	},
+	"6": {
+		"action": "${user1} A6 F2 ${user2} sinon il boit",
+		"timer": 30,
+		"force": 2
 	}
 }
