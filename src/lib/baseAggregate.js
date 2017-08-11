@@ -1,33 +1,16 @@
-'use strict'
-
-const fs = require('fs');
-const path = require('path');
-
 const Action = require('../class/Action.js');
 const Question = require('../class/Question.js');
-const ACTION_FILE = path.dirname('/../../dataBases/actions.json');
-const QUESTION_FILE = path.dirname('/../../dataBases/questions.json');
+const ACTION_FILE = require('../dataBases/actions.json');
+const QUESTION_FILE = require('../dataBases/questions.json');
 
 const actionsArray = [];
 const questionsArray = [];
 const finishArray = []
 
 function buildDataBase(Constructor, dataBase, array) {
-	new Promise((resolve, reject) => {
-		fs.readFile(dataBase, (err, data) => {
-			if (err) {
-				reject(err)
-			}
-			resolve(data);
-		});
-	}).then(data => {
-		const jsonData = JSON.parse(data);
-
-		for (const key in jsonData) {
-			array.push(new Constructor(jsonData[key]));
-		}
-
-	});
+	for (const key in dataBase) {
+		array.push(new Constructor(dataBase[key]));
+	}
 }
 
 buildDataBase(Action, ACTION_FILE, actionsArray);

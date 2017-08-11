@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = class Action {
 	constructor(object) {
 		this.question = object.action;
