@@ -1,5 +1,7 @@
 //node_modules
 import React, { Component } from 'react'
+
+import CountDown from './CountDown'
 //other
 import './../styles/App.css'
 
@@ -15,12 +17,12 @@ class App extends Component {
             data_players: false,
             timer: false,
             question: false,
-            action: false
+            action: false,
+            secondsRemaining: 30
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.fetchData = this.fetchData.bind(this);
-        this.launchTimer = this.launchTimer.bind(this);
     }
 
     handleChange(event){
@@ -42,22 +44,6 @@ class App extends Component {
         this.setState({question : [this.getQuestion()]});
     }
 
-    launchTimer() {
-        setInterval(this.countDown(), 1000);
-     }
-
-    countDown(){
-        console.log(this.state.timer)
-        let seconds = this.state.timer - 1;
-        this.setState({
-            timer: seconds
-        });
-
-        if (seconds == 0) {
-            clearInterval(this.timer);
-        }
-    }
-
     getTimer(){
         return 30
     }
@@ -76,8 +62,7 @@ class App extends Component {
             <div className="App">
                 {this.state.timer ?
                     <div className="game-wrapper">
-                        <div className="timer">{this.state.timer}</div>
-                        <input type="button" value="launch timer" onClick={this.launchTimer}/>
+                        <div className="timer"><CountDown secondsRemaining={this.state.timer}/></div>
                         {this.state.question ?
                             <div className="question">{this.state.question}</div>
                             : <div className="action">{this.state.action[1]}</div>
