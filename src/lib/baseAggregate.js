@@ -29,6 +29,9 @@ function getQuestionBase() {
 }
 
 function getBaseByForce(base, force) {
+	if (force===2) {
+		console.log(base)
+	}
 	return base.filter(riddle => {
 		return riddle.force === force;
 	});
@@ -40,7 +43,7 @@ function getBuildingFinish(user1, user2) {
 		const baseChoosed = chooseActionOrQuestion();
 		const actor = chooseUser(user1, user2);
 		const riddleChoosed = chooseRiddle(baseChoosed, actor);
-
+		console.log(user1.clothes, user2.clothes)
 		if (riddleChoosed.naked) {
 			actor.nakedUser();
 		}
@@ -57,9 +60,11 @@ function chooseRiddle (base, actor) {
 		const baseByForce = getBaseByForce(base, 1);
 		return baseByForce[getRandomArbitrary(0, baseByForce.length)];
 	} else if (actor.score >= 55) {
+		console.log(getBaseByForce(base, 2))
 		const baseByForce = getBaseByForce(base, 2);
 		return baseByForce[getRandomArbitrary(0, baseByForce.length)];
 	} else if (actor.score >= 30) {
+
 		const baseByForce = getBaseByForce(base, 3);
 		return baseByForce[getRandomArbitrary(0, baseByForce.length)];
 	}

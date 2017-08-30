@@ -2,6 +2,9 @@
 import React, { Component } from 'react'
 
 import CountDown from './CountDown'
+
+import Riddles from './../lib/baseAggregate'
+import User from '../class/User'
 //other
 import './../styles/App.css'
 
@@ -70,8 +73,9 @@ class App extends Component {
                     </div>
                 :
                     <div className="launche-wrapper">
-                        Si vous êtes prêt à baiser comme des chacals lancez le jeu bande de chacal ! <br />
-                        <input type="button" value="BAISER BAISER BAISER" onClick={this.fetchData}/>
+                        Come on baby! <br />
+                        <input type="button" value="Click me!" onClick={this.fetchData}/>
+                        {console.log(Riddles.getBuildingFinish(new User(this.state.first_player_name[1], this.state.first_player_clothes[1]), new User(this.state.second_player_name[1], this.state.second_player_clothes[1])))}
                     </div>
                 }
             </div>
