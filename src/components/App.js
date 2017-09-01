@@ -21,11 +21,13 @@ class App extends Component {
             timer: false,
             question: false,
             action: false,
-            secondsRemaining: 30
+            secondsRemaining: 30,
+            inc: 0,
+            data: null
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
-        this.fetchData = this.fetchData.bind(this);
+        this.handleNext = this.handleNext.bind(this);
     }
 
     handleChange(event){
@@ -38,25 +40,20 @@ class App extends Component {
             && this.state.first_player_clothes[0]
             && this.state.second_player_clothes[0]){
                 this.setState({data_players: true});
+                let User1 = new User(this.state.first_player_name[1], this.state.first_player_clothes[1]);
+                let User2 = new User(this.state.second_player_name[1], this.state.second_player_clothes[1]);
+                let data = Riddles.getBuildingFinish(User1, User2);
+                this.setState({data : data});
+                this.setState({timer : data[this.state.inc]['timer']});
+                this.setState({todo : data[this.state.inc]['question']});
             }
     }
 
-    fetchData(){
-        this.setState({timer : [this.getTimer()]});
-        this.setState({action : [this.getAction()]});
-        this.setState({question : [this.getQuestion()]});
-    }
-
-    getTimer(){
-        return 30
-    }
-
-    getQuestion(){
-        return this.state.first_player_name[1] + " doit dire la couleur de préférée de " + this.state.second_player_name[1] + " sinon il boit"
-    }
-
-    getAction(){
-        return this.state.first_player_name[1] + " embrasse " + this.state.second_player_name[1] + " pendant 30 seconde"
+    handleNext(){
+        this.setState({inc : this.state.inc + 1})
+        console.log(this.state.data)
+        this.setState({timer : this.state.data[this.state.inc]['timer']});
+        this.setState({todo : this.state.data[this.state.inc]['question']});
     }
 
   render() {
@@ -65,17 +62,13 @@ class App extends Component {
             <div className="App">
                 {this.state.timer ?
                     <div className="game-wrapper">
-                        <div className="timer"><CountDown secondsRemaining={this.state.timer}/></div>
-                        {this.state.question ?
-                            <div className="question">{this.state.question}</div>
-                            : <div className="action">{this.state.action[1]}</div>
-                        }
+                        <div className="todo">{this.state.todo}</div>
+                        <div className="timer"><CountDown secondsRemaining={this.state.timer} parentMethod={this.handleNext}/></div>
                     </div>
                 :
-                    <div className="launche-wrapper">
-                        Come on baby! <br />
-                        <input type="button" value="Click me!" onClick={this.fetchData}/>
-                        {console.log(Riddles.getBuildingFinish(new User(this.state.first_player_name[1], this.state.first_player_clothes[1]), new User(this.state.second_player_name[1], this.state.second_player_clothes[1])))}
+                    <div className="game-wrapper">
+                        <div className="todo">{this.state.todo}</div>
+                        <button onClick={() => this.handleNext()}>Valider</button>
                     </div>
                 }
             </div>
@@ -94,7 +87,7 @@ class App extends Component {
                       <input onChange={this.handleChange} name="second_player_name" type="text" required="required" placeholder="Pseudo"/>
                       <input onChange={this.handleChange} name="second_player_clothes" type="number" required="required" placeholder="Nombres de vêtements"/>
                   </div>
-                  <input type="button" value="Valider" onClick={this.handleClick}/>
+                  <input type="button" value="Valider" onClick={() => this.handleClick()}/>
               </form>
           </div>
         )
