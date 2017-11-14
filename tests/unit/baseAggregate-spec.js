@@ -55,7 +55,14 @@ describe('#getBuildingFinish', function () {
 		const User2 = new User('bar', 7);
 
 		const finishArray = baseAggregateMock.getBuildingFinish(User1, User2);
+		expect(User2.score - User2.score).to.be.below(10);
+	});
+	it('should write the good user', function () {
+		const User1 = new User('foo', 8);
+		const User2 = new User('bar', 7);
 
-		expect(User1.score - User2.score).to.be.below(10);
+		const finishArray = baseAggregateMock.getBuildingFinish(User1, User2);
+        expect(finishArray[0].question).to.include(User1.name);
+        expect(finishArray[0].question).to.include(User2.name);
 	});
 });

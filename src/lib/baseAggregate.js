@@ -1,3 +1,5 @@
+'use strict';
+
 const Action = require('../class/Action.js');
 const Question = require('../class/Question.js');
 const ACTION_FILE = require('../dataBases/actions.json');
@@ -29,12 +31,18 @@ function getQuestionBase() {
 }
 
 function getBaseByForce(base, force) {
-	if (force===2) {
-		console.log(base)
-	}
 	return base.filter(riddle => {
 		return riddle.force === force;
 	});
+}
+
+function replaceUserValue(riddle, actor, passive) {
+	const genre = riddle instanceof Question ? 'question' : 'question';
+	const riddleToPush = Object.assign({}, riddle);
+	riddleToPush[genre] = riddleToPush[genre].replace('${user1}', actor.name);
+	riddleToPush[genre] = riddleToPush[genre].replace('${user2}', passive.name);
+
+	return riddleToPush
 }
 
 function getBuildingFinish(user1, user2) {
@@ -42,13 +50,13 @@ function getBuildingFinish(user1, user2) {
 	while(user1.clothes > 0 || user2.clothes > 0) {
 		const baseChoosed = chooseActionOrQuestion();
 		const actor = chooseUser(user1, user2);
+		const passive = actor.name === user1.name ? user2 : user1;
 		const riddleChoosed = chooseRiddle(baseChoosed, actor);
-		console.log(user1.clothes, user2.clothes)
 		if (riddleChoosed.naked) {
 			actor.nakedUser();
 		}
 
-		finishArray.push(riddleChoosed)
+		finishArray.push(replaceUserValue(riddleChoosed, actor, passive));
 		actor.lowerScore();
 	}
 
@@ -60,11 +68,9 @@ function chooseRiddle (base, actor) {
 		const baseByForce = getBaseByForce(base, 1);
 		return baseByForce[getRandomArbitrary(0, baseByForce.length)];
 	} else if (actor.score >= 55) {
-		console.log(getBaseByForce(base, 2))
 		const baseByForce = getBaseByForce(base, 2);
 		return baseByForce[getRandomArbitrary(0, baseByForce.length)];
 	} else if (actor.score >= 30) {
-
 		const baseByForce = getBaseByForce(base, 3);
 		return baseByForce[getRandomArbitrary(0, baseByForce.length)];
 	}
@@ -79,7 +85,7 @@ function chooseActionOrQuestion () {
 
 function chooseUser (user1, user2) {
 	if (user1.clothes === 0) {
-		return user2
+		return user2;
 	}
 	if (user2.clothes === 0) {
 		return user1;
