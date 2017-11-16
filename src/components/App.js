@@ -13,16 +13,16 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            first_player_name: [false, 'Joueur 1'],
+            first_player_name: [false, 'Pseudo'],
             first_player_clothes: [false, null],
-            second_player_name: [false, 'Joueur 2'],
+            second_player_name: [false, 'Pseudo'],
             second_player_clothes: [false, null],
             data_players: false,
             timer: false,
             question: false,
             action: false,
             secondsRemaining: 30,
-            inc: 0,
+            inc: 1,
             data: null
         };
         this.handleChange = this.handleChange.bind(this);
@@ -60,6 +60,7 @@ class App extends Component {
     if(this.state.data_players){
         return(
             <div className="App">
+                <div className="logo-picolosex"></div>
                 {this.state.timer ?
                     <div className="game-wrapper">
                         <div className="todo">{this.state.todo}</div>
@@ -76,18 +77,19 @@ class App extends Component {
     } else {
         return (
           <div className="App">
+            <div className="logo-picolosex"></div>
               <form>
-                  <div className="first_player">
+                  <div className="first_player player">
                       <h1>{this.state.first_player_name}</h1>
                       <input onChange={this.handleChange} name="first_player_name" type="text" required="required" placeholder="Pseudo"/>
                       <input onChange={this.handleChange} name="first_player_clothes" type="number" required="required" placeholder="Nombres de vêtements"/>
                   </div>
-                  <div className="second_player">
+                  <div className="second_player player">
                       <h1>{this.state.second_player_name}</h1>
                       <input onChange={this.handleChange} name="second_player_name" type="text" required="required" placeholder="Pseudo"/>
                       <input onChange={this.handleChange} name="second_player_clothes" type="number" required="required" placeholder="Nombres de vêtements"/>
                   </div>
-                  <input type="button" value="Valider" onClick={() => this.handleClick()}/>
+                  <button onClick={() => this.handleClick()}>Valider</button>
               </form>
           </div>
         )
