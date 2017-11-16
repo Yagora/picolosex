@@ -32,7 +32,7 @@ class CountDown extends Component {
 
     render(){
         if(this.state.secondsRemaining > 0){
-            return <div>Seconds Remaining: {this.state.secondsRemaining}</div>
+            return <div>Temps restant: {this.state.secondsRemaining}</div>
         } else {
             return <button onClick={this.handleClick} >Valider</button>
         }
