@@ -1,26 +1,42 @@
 {
 	"1": {
-		"question": "${user1} Q1 F1 ${user2} sinon il boit",
+		"question": "${actor} doit dire la couleur préféré de ${passive} sinon il boit",
 		"force": 1
 	},
 	"2": {
-		"question": "${user1} Q2 F2 ${user2} sinon il boit",
+		"question": "${actor} doit dire ce qu'il aime le plus au lit et il boit",
 		"force": 2
 	},
 	"3": {
-		"question": "${user1} Q3 F3 ${user2} sinon il boit",
+		"question": "${actor} doit raconter une anecdote sexuelle sinon il boit",
 		"force": 3
 	},
 	"4": {
-		"question": "${user1} Q4 F4 ${user2} sinon il boit",
+		"question": "${actor} doit avouer sont fantasme le plus secret et ${passive} boit",
 		"force": 4
 	},
 	"5": {
-		"question": "${user1} Q5 F1 ${user2} sinon il boit",
+		"question": "${actor} doit dire la derniere fois qu'il a fait l'amour et il boit",
 		"force": 1
 	},
 	"6": {
-		"question": "${user1} Q6 F2 ${user2} sinon il boit",
+		"question": "Tout le monde boit !!! In your face !!",
+		"force": 2
+	},
+	"7": {
+		"question": "${actor} a 3 gorg�es a distribuer au cours de la partie",
+		"force": 1
+	},
+	"8": {
+		"question": "${actor} doit dire ce qu'il aime le plus chez ${passive} physiquement. ${passive} boit",
+		"force": 3
+	},
+	"9": {
+		"question": "${actor} doit dire ce qu'il aime le plus chez ${passive} sexuellement. ${actor} boit",
+		"force": 4
+	},
+	"10": {
+		"question": "${actor} dire sa position préféré et ${passive} boit",
 		"force": 2
 	}
 }

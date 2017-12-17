@@ -1,5 +1,3 @@
-'use strict';
-
 const Action = require('../class/Action.js');
 const Question = require('../class/Question.js');
 const ACTION_FILE = require('../dataBases/actions.json');
@@ -37,10 +35,10 @@ function getBaseByForce(base, force) {
 }
 
 function replaceUserValue(riddle, actor, passive) {
-	const genre = riddle instanceof Question ? 'question' : 'question';
+	const genre = 'question';
 	const riddleToPush = Object.assign({}, riddle);
-	riddleToPush[genre] = riddleToPush[genre].replace('${user1}', actor.name);
-	riddleToPush[genre] = riddleToPush[genre].replace('${user2}', passive.name);
+	riddleToPush[genre] = riddleToPush[genre].replace('${actor}', actor.name);
+	riddleToPush[genre] = riddleToPush[genre].replace('${passive}', passive.name);
 
 	return riddleToPush
 }

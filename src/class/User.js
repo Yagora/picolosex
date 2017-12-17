@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = class User {
 	constructor(name, clothes=0) {
 		this.name = name;

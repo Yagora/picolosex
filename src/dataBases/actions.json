@@ -1,35 +1,67 @@
 {
 	"1": {
-		"action": "${user1} A1 F1 ${user2} sinon il boit",
-		"timer": 30,
+		"action": "${actor} doit embrasser le visage de ${passive} et tout le monde boit",
+		"timer": 10,
 		"force": 1
 	},
 	"2": {
-		"action": "${user1} A2 F2 ${user2} sinon il boit",
-		"timer": 30,
+		"action": "${passive} doit enlever un vetement a ${actor}",
 		"force": 2,
 		"naked": true
 	},
 	"3": {
-		"action": "${user1} A3 F3 ${user2} sinon il boit",
-		"timer": 30,
-		"force": 3
+		"action": "${actor} doit lui dire a l'oreille ce qu'il/elle aimerait que ${passive} lui fasse",
+		"timer": 20,
+		"force": 2
 	},
 	"4": {
-		"action": "${user1} A4 F4 ${user2} sinon il boit",
+		"action": "${actor} doit lecher le sexe de ${passive}, et tout le monde boit",
 		"timer": 30,
-		"force": 4,
-		"naked": true
+		"force": 4
 	},
 	"5": {
-		"action": "${user1} A5 F1 ${user2} sinon il boit",
-		"timer": 30,
+		"action": "${passive} doit enlever un vetement a ${actor} avec les dents",
 		"force": 1,
 		"naked": true
 	},
 	"6": {
-		"action": "${user1} A6 F2 ${user2} sinon il boit",
+		"action": "${passive} doit enlever un vetement a ${actor} en fermant les yeux pendant que ${actor} boit",
+		"force": 3,
+        "naked": true
+	},
+	"7": {
+		"action": "${actor} doit faire l'amour a ${passive}",
 		"timer": 30,
-		"force": 2
+		"force": 4
+	},
+	"8": {
+		"action": "${actor} et ${passive} doivent immiter une levrettre sans pénétration",
+		"timer": 20,
+		"force": 4
+	},
+	"9": {
+		"action": "${actor} doit enlever un vetement sensuellement devant ${passive} pendant que ${passive} boit",
+		"force": 3,
+        "naked": true
+	},
+	"10": {
+		"action": "${actor} doit embrasser sensuellement ${passive} dans le cou",
+		"timer": 20,
+		"force": 1
+	},
+	"11": {
+		"action": "${actor} doit carresser le sexe de ${passive}",
+		"timer": 30,
+		"force": 3
+	},
+	"12": {
+		"action": "${passive} doit choisir un vetement que ${actor} devra enlever. Tout le monde boit",
+		"force": 3,
+        "naked": true
+	},
+	"13": {
+		"action": "${actor} doit enlever un vetement. Tout le monde boit",
+		"force": 3,
+        "naked": true
 	}
 }
