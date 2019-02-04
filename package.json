@@ -2,27 +2,29 @@
   "name": "picolosex",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit"
+  },
   "dependencies": {
-    "assert": "^1.4.1",
-    "chai": "^4.0.0",
-    "mocha": "^3.4.2",
-    "path": "^0.12.7",
-    "proxyquire": "^1.8.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-redux": "^5.0.5",
-    "react-router": "^2.8.1",
-    "redux": "^3.6.0",
-    "redux-form": "^6.7.0",
-    "sinon": "^2.3.2"
+    "register-service-worker": "^1.5.2",
+    "vue": "^2.5.22",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
-    "react-scripts": "1.0.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "test": "mocha tests/**/*.js --reporter spec"
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-plugin-eslint": "^3.4.0",
+    "@vue/cli-plugin-pwa": "^3.4.0",
+    "@vue/cli-plugin-unit-mocha": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
+    "@vue/eslint-config-airbnb": "^4.0.0",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.1.2",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.5.21"
   }
 }
